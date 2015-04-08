@@ -423,11 +423,16 @@ body {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: Open sans;
   font-weight: 400;
   color: black;
   letter-spacing: 1.5;
-  background-color: #07043d;
+  background-color: white;
   font-size: 12px;
   font-size: 0.75rem; }
   @media screen and (min-width: 450px) {

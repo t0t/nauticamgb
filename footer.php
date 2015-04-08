@@ -16,7 +16,6 @@
 		<nav>
 			<ul>
 				<li><a href="#">Fa</a></li>
-				<li><a href="#">Tw</a></li>
 			</ul>
 		</nav>
 	</div>

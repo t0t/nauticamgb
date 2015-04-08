@@ -24,12 +24,13 @@ html {}
 body {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     font-family: $basefont;
     font-weight: 400;
     color: $textcolor;
     letter-spacing: $line-height-base;
     // @include background-image(bg,cover,no-repeat,center top, svg);
-    background-color: $color-base;
+    background-color: $color-white;
     // background-image: url(#{$image-path}bg.svg);
     @include font-size(12);
 
