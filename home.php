@@ -6,6 +6,55 @@ Template Name: Home
 <?php get_header(); ?>
 
 <main class="main">
+<div>
+    <figure>
+      <img src="http://www.barcos-alquiler.com/imagenes/alquiler_barcos/alquiler_barcos.jpg" alt="">
+      <figcaption>
+      <p><strong>Main</strong> aphhon dje la imagen</p>
+      </figcaption>
+    </figure>
+</div>
+<div>
+	<figure>
+		<img src="http://www.barcos-alquiler.com/imagenes/alquiler_barcos/alquiler_barcos.jpg" alt="">
+		<figcaption>
+		<p><strong>Main</strong> aption de la imagen</p>
+		</figcaption>
+	</figure>
+</div>
+<div>
+	<figure>
+		<img src="http://www.barcos-alquiler.com/imagenes/alquiler_barcos/alquiler_barcos.jpg" alt="">
+		<figcaption>
+		<p><strong>Main</strong> caiomagen</p>
+		</figcaption>
+	</figure>
+</div>
+<div>
+	<figure>
+		<img src="http://www.barcos-alquiler.com/imagenes/alquiler_barcos/alquiler_barcos.jpg" alt="">
+		<figcaption>
+		<p><strong>Main</strong> caption de la imagen</p>
+		<a href="#">button</a>
+		</figcaption>
+	</figure>
+</div>
+<div>
+	<figure>
+		<img src="http://www.barcos-alquiler.com/imagenes/alquiler_barcos/alquiler_barcos.jpg" alt="">
+		<figcaption>
+		<p><strong>Main</strong> caption de la imagen</p>
+		</figcaption>
+	</figure>
+</div>
+<div>
+	<figure>
+		<img src="http://www.barcos-alquiler.com/imagenes/alquiler_barcos/alquiler_barcos.jpg" alt="">
+		<figcaption>
+		<p><strong>Main</strong> captikjon de laen</p>
+		</figcaption>
+	</figure>
+</div>
 <section>
 	<?php
 	$args = array(
@@ -65,9 +114,7 @@ Template Name: Home
 	</article>
 	<?php endwhile; endif; ?>
 </section>
-<footer>
-	Mapa
-	<?php echo do_shortcode('[mappress mapid="1" width="100%"]'); ?>
-</footer>
+
 </main>
+	<?php //echo do_shortcode('[mappress mapid="1" width="100%"]'); ?>
 <?php get_footer(); ?>
