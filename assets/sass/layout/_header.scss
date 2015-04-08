@@ -1,14 +1,12 @@
-.header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-        @include transition(.2s);
-        border: 2px solid black;
-        // background-color: $color-alt;
+.page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // overflow: hidden;
+    // background-color: $color-alt;
     // @include background-image(bg_header, cover, no-repeat, center bottom, svg);
 
-        &:hover {
-            .brand {}
-        }
+    &:hover {
+        .brand {}
     }
+}

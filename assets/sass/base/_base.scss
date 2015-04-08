@@ -19,12 +19,14 @@
     // Fallback ie
 }
 
-html {}
+html {
+}
 
 body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    // min-height: 100vh;
     font-family: $basefont;
     font-weight: 400;
     color: $textcolor;

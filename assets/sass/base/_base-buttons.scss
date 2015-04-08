@@ -1,7 +1,7 @@
 
 .btn {
     background-color: $color-alt;
-    padding: 6px 12px;
+    line-height: $line-height-base * 3;
     &:hover {
     background-color: darken($color-alt, 10);
         color: $color-base;

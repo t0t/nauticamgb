@@ -7,19 +7,25 @@
 		</div>
 	</div>
 	
-	<div class="search">
+	<!-- <div class="search">
 			<input type="text">
 			<input type="submit" value="Buscar">
-	</div>
+	</div> -->
 	
 	<div class="social">
 		<nav>
 			<ul>
-				<li><a href="#">Fa</a></li>
+				<li><a href="#">Facebook</a></li>
 			</ul>
 		</nav>
 	</div>
+	
+	<div class="main-footer__credits">
+		<?php bloginfo('name'); ?>(c) <?php the_date('Y'); ?>
+		<?php wp_loginout(); ?>
+		<?php edit_post_link(); ?>
+	</div>
+
 </footer>
-<?php edit_post_link(); ?>
 </body>
 </html>

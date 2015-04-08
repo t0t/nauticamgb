@@ -108,10 +108,10 @@ function create_post_type() {
 
 	register_post_type( 'cpt', array( 
 
-			'labels' => array( 'name' => __( 'Habitaciones' ), 'singular_name' => __( 'Habitacion' )),
+			'labels' => array( 'name' => __( 'Barcos' ), 'singular_name' => __( 'Barco' )),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array( 'slug' => 'habitacion' ),
+			'rewrite' => array( 'slug' => 'barco' ),
 			'taxonomies' => array( 'category' ),
 			'supports' => array( 'title', 'editor', 'thumbnail' ),
 			)
