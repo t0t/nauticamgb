@@ -1,0 +1,52 @@
+.team {
+    @include transition(0.2s);
+    overflow: hidden;
+    height: 75px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    @media (min-width: $bp3) {}
+    line-height: $line-height-base;
+    background-color: lighten($color-alt, 50);
+
+    &:hover, .hover {
+        flex-grow: 1;
+        flex-shrink: 7;
+        flex-basis: 40%;
+        height: 40vh;
+        @media (min-width: $bp3) {}
+    }
+
+    &::before {
+        content: "";
+    }
+}
+
+.team__figure {
+    margin: 0;
+    flex-basis: 20%;
+    align-self: center;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.team__description {
+    padding-bottom: $padding_base;
+    @include max-width;
+}
+
+.team__list {
+    display: flex;
+
+    @media (min-width: $bp3) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    a {
+        font-size: .7rem;
+    }
+}

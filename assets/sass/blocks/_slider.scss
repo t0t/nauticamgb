@@ -1,0 +1,360 @@
+//Slider
+.slider {
+    @include max-width($bp0 - $paddingbase * 10);
+    position: relative;
+    // height: 500px;
+    z-index: 1;
+    padding-top: 0;
+    padding-left: $gutterwidth * 3;
+    padding-right: $gutterwidth * 3;
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    @media all and (max-width: $bp2) {}
+    @media all and (min-width: $bp3) {}
+}
+
+.slider__item {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-bottom: 5px;
+
+    @media all and (min-width: 780px) {
+        // @include max-width(900px);
+        // right: auto;
+        // left: auto;
+        // background-color: red;
+        // width: 90%;
+    }
+
+    &.current {
+        opacity: 1;
+        padding-bottom: 0;
+    }
+}
+
+.slider__slides {
+    @extend %text-center;
+
+    img {
+        width: inherit;
+    }
+
+    @media all and (min-width: 780px) {
+        @include flexbox;
+        // @include align-content(center); //alineado horizontal
+        // @include align-items(center); //alineado vertical
+        @include justify-content(center);
+        //alineado vertical
+        // width: 100%;
+        margin: 0 auto;
+        // border: 1px dotted $black-alpha-suave;
+    }
+}
+
+.slider__figure {
+    @extend %text-center;
+    position: relative;
+
+    @media all and (min-width: 780px) {
+        // @include flexbox;
+        // @include justify-content(center); //alineado horizontal
+        // @include align-items(center); //alineado vertical
+    }
+
+    img {
+        // @include circle();
+        margin: 0;
+        // -webkit-filter: grayscale(1);
+        // filter: grayscale(1);
+
+        @media all and (min-width: 780px) {
+            // border-radius: $radius;
+        }
+
+        @media all and (min-width: 900px) {
+            // width: 250px;
+        }
+    }
+}
+
+.slider__meta-date {
+    color: $black-alpha-medio;
+    @extend %clearfix;
+    font-size: 1rem;
+    line-height: $baselineheight / 2;
+    letter-spacing: $baseletterspacing;
+}
+
+.slider__title {
+    color: $color-alt;
+    // @extend %clearfix;
+    // @extend %lowercase;
+    padding: $gutterwidth 0;
+}
+
+.slider__caption {
+    @include font-size(30);
+    font-style: normal;
+    letter-spacing: -1px;
+    @media all and (min-width: 780px) {}
+    @media all and (min-width: 1280px) {}
+}
+
+.slider__caption-post {
+    color: $color-base;
+}
+
+.slider__btn {
+    border: none;
+    @include font-size(36);
+    line-height: 2;
+    color: $white;
+    border: 1px dotted $white;
+
+    &:hover {
+        background-color: $black-alpha-fuerte;
+    }
+
+    &:visited {
+        color: $white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.slider__btn-call {
+    width: 180px;
+    height: 40px;
+    display: block;
+    margin: $paddingbase auto;
+    border-radius: $radius * 10;
+    @include font-size(24);
+    line-height: $baselineheight * 1.5;
+
+    &:hover {
+        background-color: $black;
+        border: none;
+    }
+
+    @media all and (min-width: $bp3) {
+        // display: inline;
+    }
+}
+
+.slider__btn-next, .slider__btn-prev {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 45%;
+    border-radius: 100%;
+    border: none;
+    z-index: 1;
+    background-color: $black-alpha-fuerte;
+    display: none;
+
+    &:hover {
+        background-color: $color-alt;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.slick-disabled {
+    @include opacity(0.2);
+}
+
+.slider__btn-next {
+    right: 10px;
+    @extend .icon-arrow-right2;
+
+    &::after {
+        @extend %display-block;
+    }
+}
+
+.slider__btn-prev {
+    left: 10px;
+    @extend .icon-arrow-left2;
+
+    &::before {
+        @extend %display-block;
+    }
+}
+
+// Estilos Revolution Slider
+.sliderh1 {
+    h1 {
+        color: $white;
+        font-size: 6rem;
+    }
+
+    h2 {
+        color: $white;
+        font-size: 2rem;
+        max-width: $bp3;
+        text-transform: inherit;
+        letter-spacing: $baseletterspacing;
+    }
+
+    .btn {
+        @include font-size(30);
+        color: $white;
+        border: 2px solid $white;
+    }
+}
+
+.slider__wrap {
+    position: relative;
+    background-color: $white;
+    padding-bottom: $gutterwidth;
+    width: 100%;
+
+    &::before {
+        content: "";
+        height: 20px;
+        width: 100%;
+        position: absolute;
+        top: -18px;
+        @include background-image(bg_ondas_top, cover, no-repeat, center, svg);
+    }
+
+    &::after {
+        content: "";
+        height: 20px;
+        width: 100%;
+        position: absolute;
+        bottom: -20px;
+        @include background-image(bg_ondas_bottom, cover, no-repeat, center, svg);
+    }
+}
+
+// Slick Slider
+/* Slider */
+
+.slick-slider {
+    display: block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    @include translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+
+.slick-slide {
+    float: left;
+    // width: 200px;
+    margin: 0 $paddingbase;
+    // height: auto;
+    // min-height: 1px;
+    // background-color: pink;
+    // position: relative;
+
+    [dir="ltr"] & {
+        float: right;
+    }
+
+    &.slick-loading img {
+        display: none;
+    }
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+
+.slick-dots {
+    li {
+        // margin-top: $gutterwidth;
+        // height: 50px;
+        display: inline-block;
+
+        button {
+            width: $paddingbase / 2;
+            height: $paddingbase / 2;
+            margin: $paddingbase;
+            border: none;
+            color: $black-alpha-fuerte;
+            background-color: $black-alpha-fuerte;
+        }
+
+        &.slick-active {
+            button {
+                color: $color-alt;
+                background-color: $color-alt;
+            }
+        }
+    }
+}

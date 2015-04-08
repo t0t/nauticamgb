@@ -1,0 +1,482 @@
+// no te pases...
+@mixin max-width($max-width: $bp0) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-width;
+    width: 100%;
+}
+
+// bordes
+@mixin border_radius_semi_rounded($radius) {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+// tamano fuente
+@mixin font-size($font-size: $basefontsize) {
+    font-size: $font-size * 1px;
+    font-size: $font-size / $basefontsize * 1rem;
+    // Fallback ie
+}
+
+html {}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: $basefont;
+    font-weight: 400;
+    color: $textcolor;
+    letter-spacing: $line-height-base;
+    // @include background-image(bg,cover,no-repeat,center top, svg);
+    background-color: $color-base;
+    // background-image: url(#{$image-path}bg.svg);
+    @include font-size(12);
+
+    @media screen and (min-width: $bp3) {
+        @include font-size(18);
+    }
+}
+
+a,
+a:visited {
+    color: $color-black;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: square;
+}
+
+a[href*="http"] {
+    &:before {
+        content: "#";
+    }
+
+    &:hover:before {
+        content: "#";
+    }
+}
+
+img {}
+
+img[src$=".svg"] {
+    max-width: auto;
+    width: 100%;
+    height: auto;
+}
+
+// LAYOUT
+.main {
+    @media screen and (min-width: $bp3) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        order: 3;
+    }
+
+    p {
+        @include max-width;
+    }
+
+    div {
+        @media (min-width: $bp3) {
+            flex: 1 $bp3 / 2;
+        }
+
+        @media (min-width: $bp4) {
+            flex: 1 $bp4 / 2;
+        }
+        overflow: hidden;
+        text-align: center;
+        @include transition(0.3s);
+
+        &:hover {
+            flex: 2 2 20rem;
+        }
+
+        figure {
+            position: relative;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                z-index: -1;
+                background-color: $color-alt;
+
+                &:hover {
+                    width: 110%;
+                }
+            }
+
+            figcaption {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 0;
+                z-index: 0;
+                background-color: $color-alt;
+                transform: translateY(100px);
+                @include transition(0.2s);
+                text-align: center;
+            }
+
+            &:hover {
+                img + figcaption {
+                    height: 40%;
+                    transform: translateY(0%);
+                    @include transition(0.2s);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+    @include max-width(90%);
+    // @extend %flex;
+    > *:first-child {}
+
+    header:first-child {
+        h1 {
+            @media all and (min-width: $bp3) {}
+            @media all and (min-width: $bp1) {}
+        }
+    }
+
+    p:first-child {
+        &::first-letter {}
+    }
+    @media all and (min-width: $bp3) {}
+}
+
+::selection {
+    // amazing
+    color: $color-white;
+    background-color: $color-base;
+    text-shadow: none;
+}
+
+::-webkit-input-placeholder {
+    line-height: $line-height-base;
+}
+
+mark {
+    background: lighten($color-base, 12);
+}
+
+/*------------------------------------*\
+    $TIPOGRAFiA
+\*------------------------------------*/
+
+// HEADINGS ====================================================
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $altfont;
+    letter-spacing: $baseletterspacing - 1;
+    text-rendering: optimizelegibility;
+
+    &.altheader {
+        @extend %text-right;
+    }
+}
+
+h1 small,
+h2 small,
+h3 small {
+    color: $color-alt;
+    @include font-size(32);
+    font-style: italic;
+    letter-spacing: $baseletterspacing;
+}
+
+@each $header, $margin-bot, $font-size, $line-height in (h1, 0, 26, 1) (h2, 3, 18, 1.1) (h3, 0, 25, 1.4) (h4, 0, 19, 3.4) (h5, 7, 19, 2) (h6, 7, 19, 1) {
+    #{$header}, .#{$header} {
+        margin-bottom: $line-height-base / $margin-bot;
+        @include font-size($font-size);
+        line-height: $line-height;
+        @extend %text-center;
+
+        span {
+            color: $color-black-alpha;
+        }
+    }
+}
+
+// TYPOGRAFiA ====================================================
+p,
+ol,
+ul,
+dl,
+address {
+    line-height: $line-height-base;
+    letter-spacing: $baseletterspacing;
+
+    small {
+        font-style: normal;
+        line-height: $line-height-base / 4;
+    }
+}
+
+small {
+    @include font-size(10);
+}
+
+dd {
+    line-height: $line-height-base;
+}
+
+ul,
+ol {
+    margin: 0 0 $line-height-base 0;
+    padding: 0;
+}
+
+li ul,
+li ol {
+    margin: 0;
+}
+
+// listas
+ul {
+    list-style-type: none;
+}
+
+// blockquote
+
+blockquote {
+    margin: 0 0 $line-height-base 0;
+    padding-left: $padding_base;
+    border-left: $padding_base / 4 solid $color-alt;
+    font-style: italic;
+    @include max-width($bp3);
+
+    q {
+        @include font-size(32);
+    }
+}
+
+q {
+    quotes: none;
+}
+
+blockquote p::before,
+blockquote p::after,
+q:before,
+q:after {
+    content: "";
+}
+
+cite {
+    font-style: normal;
+}
+
+// definition lists
+
+dl,
+dd,
+dt {}
+
+dt {
+    // font-weight : bold;
+}
+
+article {
+    @extend %flex;
+    @include flex-direction(row);
+    flex-wrap: wrap;
+    // margin: $padding_base 0;
+
+    img {
+        width: 75%;
+    }
+
+    h2 {
+        flex: 1 0 100%;
+    }
+}
+
+// listas horizontales
+.list-inline {
+    > li {}
+}
+
+.precio {
+    background-color: darken($color-base, 15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include font-size(30);
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &:before {
+        content: "Precio: ";
+        @include font-size(15);
+    }
+
+    .precio__cantidad {
+        font-weight: bold;
+
+        // &:after {
+        //     content: "E";
+        //     @include font-size(25);
+        // }
+   
+    }
+
+    small {
+        display: block;
+        padding: 5px;
+        width: 50%;
+    }
+}
+
+.features {
+    line-height: 2;
+    padding: 15px;
+    @extend %flex;
+    @include flex-direction(row);
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    background-color: complement($color-base);
+
+    dt {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    dd {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+}
+
+.features__title {}
+
+.features__item {}
+
+.dl-horizontal {
+    dt {}
+    dd {}
+}
+
+// text-level
+
+abbr[title] {
+    cursor: help;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+dfn {
+    font-style: italic;
+}
+
+ins {
+    background-color: lighten($color-base, 75%);
+    color: $textcolor;
+    text-decoration: none;
+}
+
+mark {
+    background-color: $color-base;
+    color: $textcolor;
+}
+
+pre,
+code,
+kbd,
+samp {
+    font-family: $codefont;
+    @include font-size(24);
+    line-height: $line-height-base;
+}
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+sub,
+sup {
+    position: relative;
+    @include font-size(8);
+    line-height: 0;
+    vertical-align: $line-height-base;
+}
+
+sup {
+    top: 1em;
+}
+
+sub {
+    bottom: -2.25em;
+}
+
+.active {
+    font-weight: bold;
+}
+
+// Scroll to top button
+.scroll {
+    position: relative;
+    width: 100%;
+
+    .scroll-top {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: $padding_base;
+
+        .icon-arrow-up2 {
+            &:before {
+                @include font-size(32);
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+hr {
+    clear: both;
+    @extend %display-block;
+    padding: 0;
+    height: 1px;
+    border: 0;
+}
+
+figure {
+    @media screen and (min-width: $bp3) {}
+
+    img {
+        &:hover {}
+    }
+    figcaption {}
+}
+
+
+
+// Mobile touch / hovers
+.tap {
+    background-color: red;
+}

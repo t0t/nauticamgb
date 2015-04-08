@@ -1,0 +1,17 @@
+ // $aside
+    .aside {
+        @include max-width($bp1);
+        background-color: $color-base;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .aside__title {
+        @include max-width(75%);
+        text-align: center;
+        margin-top: $padding_base;
+        margin-bottom: 0;
+        flex: 1 0 100%;
+    }

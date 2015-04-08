@@ -1,0 +1,345 @@
+/*------------------------------------*\
+    $WIDGETS
+\*------------------------------------*/
+
+
+    // $widgets
+    .widget {
+        padding: $padding_base / 2;
+        @extend %flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid $color-alt;
+        margin: $padding_base;
+
+        ul {
+            margin: $padding_base / 2 0;
+            padding-left: $padding_base / 2;
+            align-self: baseline;
+
+            li {
+                &.widget__title {
+                    text-align: left;
+                    list-style-type: none;
+                    text-transform: uppercase;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    .widget__title {
+        text-align: center;
+        // margin-bottom: 0;
+   
+    }
+
+    .widget--external-links {
+        flex: 1 0 150px;
+        border-style: dashed;
+
+        svg {
+            width: 100px;
+        }
+
+        g {
+            stroke: none;
+            fill: none;
+        }
+
+        path {
+            stroke: $color-black;
+            stroke-width: 1;
+            vector-effect: non-scaling-stroke;
+            shape-rendering: geometricPrecision;
+        }
+    }
+
+    .widget--contact {
+        flex-direction: column;
+        flex: 1 0 158px;
+        padding-bottom: 0;
+        .widget__title {
+            margin-bottom: 0;
+        }
+        a {}
+    }
+
+    .widget--proceso {
+        flex: 1 0 50%;
+        flex-direction: column;
+
+        .widget__title {
+            flex-basis: 100%;
+            text-align: left;
+        }
+
+        @media screen and (min-with: $bp3) {
+            ul {
+                @include max-width(39%);
+            }
+        }
+    }
+
+
+.widget--wp {}
+.widget--posts {}
+.widget--pages {}
+.widget--tags {
+    .tagcloud {
+        a {
+            font-size: 2rem;
+        }
+    }
+}
+
+.widget--agenda {}
+
+.widget--newsletter {
+    // @extend %basepadding;
+    padding-top: $padding_base * 2;
+    @include max-width($bp3);
+    @extend %text-center;
+
+    form {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+            @extend %flex;
+            @include justify-content(space-around);
+            @include align-items(baseline);
+    }
+
+    h3 {
+        // padding-bottom: $padding_base / 2;
+        margin-right: $padding_base;
+    }
+
+    h3, label {
+        color: $color-white;
+        margin-bottom: 0;
+    }
+
+    input[type="email"] {
+        width: 50%;
+        // @include flex-grow(2);
+        margin-right: 10px;
+        background-color: $color-black;
+
+        &::-webkit-input-placeholder {
+            font-size: inherit;
+            color: red;
+            padding-left: $padding_base;
+        }
+    }
+
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        color: $color-white;
+        background-color: $color-black;
+
+        &:hover {
+            background-color: $color-black;
+        }
+    }
+}
+
+// Idiomas
+.idiomas {
+    .idiomas__item {}
+}
+
+// Alerts
+.alert {
+    padding: $padding_base / 2;
+    background-color: $color-alert;
+    font-family: $basefont;
+    @include font-size(13);
+
+    > p {
+        margin-bottom: 0;
+        display: table-row;
+        width: 90%;
+
+        a {
+            text-decoration: underline;
+            &:hover {}
+        }
+    }
+}
+
+.alert--info {
+    width: 250px;
+    height: auto;
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    display: table;
+    @extend %text-center;
+    border: none;
+    position: fixed;
+    z-index: 2;
+}
+
+.alert__heading {
+    color: inherit;
+}
+
+.alert__close {
+    display: table-cell;
+    width: 10%;
+    @include font-size(21);
+    font-weight: bold;
+    line-height: 18px;
+    color: inherit;
+}
+
+.alert__success {
+    background-color: $color-base;
+    border-color: $color-alt;
+}
+
+.alert__warning {}
+
+.alert__error {}
+
+.alert__link {
+    color: $color-base;
+}
+.alert__inverse {}
+
+// WELL ====================================================
+
+.well {
+    @extend %flex;
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-direction(column);
+    @include max-width($bp2);
+    border-radius: $radius;
+    @extend %text-center;
+
+    h1 {
+        letter-spacing: -1px;
+        @media screen and (min-width: $bp3) {
+            font-size: 5rem;
+            letter-spacing: -3px;
+        }
+    }
+    p {
+        @include max-width($bp3);
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.well--large {
+    padding: $padding_base * 4 $padding_base * 4;
+    @extend %text-center;
+    background-color: $color-base;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+}
+
+.well--small {
+    padding: $padding_base / 2;
+}
+
+.well--img {
+    @include max-width($bp0);
+    min-height: 300px;
+    
+        @media screen and (min-width: $bp3) {
+            min-height: 60vh;
+        }
+    
+    p, h3 {
+        color: $color-white;
+    }
+}
+
+.well--anim {
+    @include max-width(100%);
+    @include size(100%, auto);
+    border-radius: 0;
+
+    p, h3 {
+        color: $color-white;
+    }
+    //background-image: url("assets/img/logo.svg")
+}
+
+// Sumario de contenidos
+.content-summary {
+    // min-height: 500px;
+
+    h3 {
+        color: $color-base;
+        margin-bottom: $padding_base;
+    }
+
+    img {
+        width: 200px;
+        height: auto;
+    }
+}
+
+.content-summary__item {
+    @extend %text-center;
+    padding: $padding_base;
+
+    p {
+        margin-bottom: $padding_base;
+        // @extend %line-height-smaller;
+   
+    }
+
+    @media all and (min-width: 850px) {
+        width: 33%;
+    }
+
+    // fix para iphone 6 en landscape
+    @media only screen and (orientation: landscape) and (max-width: 850px) {
+        width: 33%;
+    }
+}
+
+// Video
+.video-main {}
+
+.video-main__header {
+    // color: $color-white;
+    margin-bottom: $padding_base;
+}
+
+.video-main__iframe {
+    @include max-width(560px);
+}
+
+.video-main__heading, .video-main__description {
+    // color: $color-white;
+}
+
+.video-main__description {
+    margin-top: $padding_base / 2;
+    margin-bottom: 0;
+}
+
+// Componente Tienda
+.tienda {}
+
+.tienda__item {
+    max-height: 730px;
+    @extend %text-center;
+
+    p {
+        margin-bottom: 0;
+    }
+}

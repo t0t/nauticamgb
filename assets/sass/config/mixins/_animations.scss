@@ -1,0 +1,211 @@
+// Animaciones
+// Glob Animation
+// ====================
+@mixin transition($transition-property: all, $transition-time: 1s, $method: ease) {
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin animation($animation, $delay, $duration, $function, $count) {
+    animation-name: $animation;
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-iteration-count: $count;
+    animation-timing-function: $function;
+}
+
+@mixin size-anim($size-anim) {
+    font-size: #{$size-anim}px;
+    width: 20em;
+    height: 30em;
+    animation: anim 1s steps(6) infinite;
+    background-size: 120em 100%;
+}
+
+@mixin anim-workinman($size) {
+    @include size-anim($size);
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/98095/anim2_t0t_bg.svg") 0 0 no-repeat;
+    animation: anim 1s steps(6) infinite;
+    background-size: 120em 100%;
+}
+
+// Mixins__Transforms
+@mixin transition($transition-property: all, $transition-time: 1.5s, $method: ease) {
+    transition: $transition-property $transition-time $method;
+}
+
+// Mixins__Animation
+@mixin animation($animation, $delay, $duration, $function, $count) {
+    animation-name: $animation;
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-iteration-count: $count;
+    animation-timing-function: $function;
+}
+
+@keyframes anim {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -120em 0;
+    }
+}
+
+
+@keyframes anim-juguete {
+    0% {
+        transform: rotate(360deg);
+        transform-origin: 50% 50%;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 50%;
+    }
+}
+
+
+@keyframes anim-mano {
+    0% {
+        transform: skewX(0deg) scaleX(1);
+        transform-origin: 50% 50%;
+    }
+
+    100% {
+        transform: skewX(9deg) scaleX(1.3);
+        transform-origin: 50% 50%;
+    }
+}
+
+
+@keyframes anim-cuerpo {
+    0% {
+        transform: translate(0px, 0px) opacity(0);
+    }
+
+    100% {
+        transform: translate(0px, 30px) opacity(1);
+    }
+}
+
+// Animaciones
+@keyframes anim_barco {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+}
+
+
+@keyframes anim_agua {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+// Keyframe Mixin
+// Adds vendor prefixes to keyframes
+// ====================
+@mixin keyframe($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+}
+
+// Animation Mixin
+// ====================
+@mixin animation($animation, $delay, $duration, $function, $count...) {
+    animation-name: $animation;
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-iteration-count: $count;
+    animation-timing-function: $function;
+}
+
+// .opacity(VALUE);
+
+@mixin opacity($opacity: 0.5) {
+    -webkit-opacity: $opacity;
+    -moz-opacity: $opacity;
+    opacity: $opacity;
+}
+
+@mixin transition($seconds) {
+    -webkit-transition: all $seconds;
+    -moz-transition: all $seconds;
+    -ms-transition: all $seconds;
+    transition: all $seconds;
+}
+
+@mixin scale($ratio) {
+    -ms-transform: scale($ratio);
+    // IE9+
+    transform: scale($ratio);
+}
+
+@mixin translate($x, $y) {
+    -ms-transform: translate($x, $y);
+    // IE9+
+    transform: translate($x, $y);
+}
+
+@mixin translateX($x) {
+    -ms-transform: translateX($x);
+    // IE9+
+    transform: translateX($x);
+}
+
+@mixin translateY($y) {
+    -ms-transform: translateY($y);
+    // IE9+
+    transform: translateY($y);
+}
+
+@mixin skew($x, $y) {
+    -ms-transform: skewX($x) skewY($y);
+    // See https://github.com/twbs/bootstrap/issues/4885; IE9+
+    transform: skew($x, $y);
+}
+
+@mixin translate3d($x, $y, $z) {
+    transform: translate3d($x, $y, $z);
+}
+
+@mixin rotateX($degrees) {
+    -ms-transform: rotateX($degrees);
+    // IE9+
+    transform: rotateX($degrees);
+}
+
+@mixin rotateY($degrees) {
+    -ms-transform: rotateY($degrees);
+    // IE9+
+    transform: rotateY($degrees);
+}
+
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    // IE9+
+    transform: rotate($degrees);
+}

@@ -1,0 +1,49 @@
+// Breakpoints
+$bp0: 1460px;
+$bp1: 1280px;
+$bp2: 900px;
+$bp2_3: 756px;
+$bp3: 450px;
+// $bp3: 376px;
+
+// Portait iphone6
+$bp3_4: 320px;
+$bp4: 250px;
+
+// Colors
+$color-base: rgb(7, 4, 61);
+$color-alt: rgb(16, 120, 217);
+$gray: #f3f3f3;
+$color-black: rgb(0, 0, 0);
+$color-black-alpha: transparentize($color-black, 0.5);
+$color-base-alpha: transparentize($color-base, 0.5);
+$color-black-suave: rgba(0, 0, 0, 0.3);
+$color-white: rgb(255, 255, 255);
+$color-resaltado: rgb(51, 255, 226);
+$color-alert: red;
+$color-success: green;
+
+
+// Base
+$basefontsize: 16;
+$padding_base: 40px;
+$line-height-base: 1.5;
+$fallback-extension: png;
+$image-path: "assets/img/" !default;
+$textcolor: $color-black;
+$baseletterspacing: 1px;
+$inputborderwidth: 1px;
+$inputborderstyle: solid;
+$inputborder: $color-base;
+$radius: 10px;
+
+// Images
+$image-path: "/";
+
+// $fuentes
+$googlefont: "http://fonts.googleapis.com/css?family=Averia+Serif+Libre";
+$altfont: Roboto;
+$codefont: "Courier New", monospace;
+$basefont: Open sans;
+$baseheadingfont: $basefont;
+$baseheadingfontweight: 400;

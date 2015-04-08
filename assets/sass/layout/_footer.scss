@@ -1,0 +1,89 @@
+// Footer principal
+.main-footer {
+    margin-top: $padding_base * 2;
+    width: 100%;
+    min-height: 75px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    z-index: 10;
+    background-color: lighten($color-alt, 45);
+    overflow: hidden;
+    @media screen and (max-width: $bp3) {}
+    @media screen and (min-width: $bp3) {}
+
+    img[src$=".svg"] {
+        @media screen and (max-width: $bp3) {}
+    }
+    input[type="submit"] {}
+}
+
+.main-footer__header {}
+
+.main-footer__social {
+    @media all and (min-width: $bp3) {}
+
+    a {
+        &:visited {}
+        &:hover {}
+        &::before {}
+    }
+}
+
+.main-footer__credits {
+    @extend %text-center;
+    @include font-size(13);
+    aside {}
+    a, a:visited {}
+    a:hover {}
+    a i:hover {}
+}
+
+.main-footer__brand {
+    address {
+        @include font-size(15);
+    }
+    @media all and (min-width: $bp3) {}
+    img {}
+}
+
+.main-footer__brand__name {}
+
+.main-footer__adicional {}
+
+.main-footer__searchform {
+    label {
+        @extend %text-center;
+
+        input {
+            @extend %text-center;
+            display: inline;
+        }
+    }
+
+    @media all and (min-width: $bp3) {
+        // @include order(1);
+        @include max-width(300px);
+        // background-color: pink;
+    }
+    .search-form
+    .search-submit {
+        display: none;
+    }
+
+    .screen-reader-text {
+        display: none;
+    }
+
+    input {
+        width: 60%;
+    }
+
+    form {
+        margin-bottom: 0;
+    }
+}

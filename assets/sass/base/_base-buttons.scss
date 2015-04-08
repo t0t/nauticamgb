@@ -1,0 +1,173 @@
+
+.btn {
+    background-color: $color-alt;
+    padding: 6px 12px;
+    &:hover {
+    background-color: darken($color-alt, 10);
+        color: $color-base;
+    }
+    &:active,
+    &:focus {
+        outline: none;
+    }
+
+    a {
+        color: $textcolor;
+        @include transition(0.4s);
+
+        &:hover {
+            text-decoration: none;
+            background-color: $color-alt;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.btn--inline-text {
+    display: inline;
+    padding: 0;
+
+    &:hover {
+        &:before {
+            color: complement($color-base);
+        }
+    }
+}
+
+.btn--standard {}
+.btn--widget {}
+
+
+/**
+* Inputs con estilo de botones
+*/
+input[type="submit"].btn:hover {
+    border-color: $color-base;
+}
+
+/**
+* Boton no disponible
+*/
+.btn--disabled {
+    @include opacity(0.5);
+    cursor: default;
+}
+
+// Boton desplegable
+.btn--slidemenu {
+    &:hover {}
+    &:visited {}
+}
+
+/**
+* Botones
+*/
+
+.btn--alert {
+    &:hover {
+        background-color: $color-base;
+    }
+}
+
+.btn--close {}
+
+.btn--well {
+    &:hover {}
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.btn--info {
+    &:hover {}
+    &:visited {}
+}
+
+.btn--error {
+    &:hover {}
+    &:visited {}
+}
+
+/**
+* Boton principal
+*/
+.btn--primary {
+    // @extend %clearfix;
+    &:hover {}
+}
+
+/**
+* Boton de OK
+*/
+.btn--success {
+    &:hover {}
+    &:visited {}
+}
+
+/**
+* Boton de advertencia
+*/
+.btn--warning {}
+
+.btn--link {}
+
+/**
+* Boton en footer
+*/
+.btn--footer {
+    &:hover {}
+    &:visited {}
+}
+
+.btn--inactive,
+.btn--inactive:hover,
+.btn--inactive:active,
+.btn--inactive:focus {
+    @include opacity(0.5);
+    cursor: default;
+}
+
+/*------------------------------------*\
+    $BOTONES-TAMAnOS
+\*------------------------------------*/
+
+.btn--mini {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    line-height: 1.5;
+}
+
+.btn--small {
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    line-height: 2;
+}
+
+.btn--large {
+    padding-right: 3em;
+    padding-left: 3em;
+    line-height: 4;
+}
+
+.btn--image {
+    background-color: $color-alt;
+
+    &:hover {
+        background-color: lighten($color-alt, 3);
+    }
+
+    a {
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.btn--invert {}
+
+

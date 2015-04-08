@@ -1,0 +1,45 @@
+.brand {
+    @media all and (min-width: $bp3) {
+        flex: 1;
+    }
+}
+
+.brand__description {
+    display: none;
+}
+
+.brand__name {
+    font-weight: 800;
+    color: $color-alt;
+
+    @media all and (max-width: 700px) {
+        width: 140px;
+    }
+}
+
+.brand__logo {
+    @media (min-width: $bp3) {
+        flex-basis: 50%;
+        width: 200px;
+        height: 90%;
+        @include background-image(logo, 100%, no-repeat, center -10px, svg);
+        @media screen and (min-width: $bp3) {
+            
+        }
+        @include transition(0.3s);
+
+        &:hover {
+            background-position: 0 -125px;
+        }
+    }
+
+    .agua {
+        fill: $color-alt;
+        @include animation(anim_agua, 3s, 2s, ease, infinite);
+    }
+
+    .barco {
+        fill: $color-base;
+        @include animation(anim_barco, 1s, 2s, ease, infinite);
+    }
+}

@@ -1,0 +1,115 @@
+@mixin input-placeholder {
+    &:-ms-input-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+.c-form {
+    height: 75px;
+    order: 6;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 33%;
+    @include transition(0.3s);
+    text-align: center;
+    
+    &:hover, .hover {
+        height: 180px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 50%;
+        background-color: lighten($color-alt,25);
+    }
+    &::before {
+        content: "";
+    }
+}
+.c-form__items {
+    display: flex;
+}
+.c-form__items__textarea {
+    border: none;
+    background-color: lighten($color-alt,40);
+    flex: 1 1 75%;
+    padding: ($padding_base/1.5) $padding_base;
+    font-size: inherit;
+    line-height: $line-height-base;
+    resize: none;
+    overflow: auto;
+    @include input-placeholder {
+        color: $color-base;
+    }
+    
+    + input[type="submit"]{
+        flex: 1 1 25%;
+        font-size: inherit;
+        &:hover {
+            cursor: pointer;
+            background-color: $color-base;
+        }
+    }
+}
+
+.search {
+    flex: 0 0 33%;
+    order: 5;
+
+    &::before {
+        content: "Buscar";
+    }
+}
+
+label {
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 10px;
+    @include transition(0.2s);
+}
+
+input[type="radio"]:checked + label > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    opacity: 1;
+    flex: 1;
+}
+input:not(:checked) + label > div {
+    opacity: 0;
+    overflow: hidden;
+}
+input[type="radio"] {
+    display: none;
+}
+label:hover, input:checked + label {
+    color: white;
+    background-color: darken($color-alt, 10);
+}
+label:hover {
+    /*cursor: pointer;*/    
+}
+input:checked + label {
+    cursor: inherit;
+}
+input[type="text"] {
+    border: none;
+    color: white;
+    padding: 5px;
+}
+input[type="submit"] {
+    background-color: darken($color-alt, 20);
+    border: none;
+    color: white;
+    padding: 5px;
+}
