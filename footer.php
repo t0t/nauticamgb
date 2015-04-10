@@ -1,31 +1,33 @@
+</div>
 <footer class="main-footer">
-	<div class="c-form">
-		<h2 class="btn">Contacta</h2>
-		<div class="c-form__items">
-			<textarea class="c-form__items__textarea" name="textarea" placeholder="Escribe aqui tu mensaje y te atenderemos de inmediato..."></textarea>
-			<input type="submit">
-		</div>
+<div class="c-form">
+	<h2 class="btn">Contacta</h2>
+	<div class="c-form__items">
+		<textarea class="c-form__items__textarea" name="textarea" placeholder="Escribe aqui tu mensaje y te atenderemos de inmediato..."></textarea>
+		<input type="submit">
 	</div>
-	
-	<!-- <div class="search">
-			<input type="text">
-			<input type="submit" value="Buscar">
-	</div> -->
-	
-	<div class="social">
-		<nav>
-			<ul>
-				<li><a href="#">Facebook</a></li>
-			</ul>
-		</nav>
-	</div>
-	
-	<div class="main-footer__credits">
-		<?php bloginfo('name'); ?>(c) <?php the_date('Y'); ?>
-		<?php wp_loginout(); ?>
-		<?php edit_post_link(); ?>
-	</div>
+</div>
 
+<div class="social">
+	<nav>
+		<ul>
+			<li><a href="#">Facebook</a></li>
+		</ul>
+	</nav>
+</div>
+
+<div class="main-footer__credits">
+	<?php bloginfo('name'); ?>&copy; <?php the_date('Y'); ?>
+	<?php //wp_loginout(); ?>
+	<?php //edit_post_link(); ?>
+</div>
 </footer>
+</div>
+
+<script>
+	// Warning, global variable =/
+	var base = '<?php echo home_url(); ?>';
+</script>
+<?php wp_footer(); ?>
 </body>
 </html>

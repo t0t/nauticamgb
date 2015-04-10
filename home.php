@@ -4,41 +4,21 @@ Template Name: Home
 */
 ?>
 <?php get_header(); ?>
-<main class="main">
-<?php
-$args = array(
-'post_type' => 'cpt',
-// 'meta_query' => array(
-			// 	array(
-			// 	'key' => '',
-			// 	'value' => '',
-			// 	'compare' => ''
-			// 	)
-// ),
-'posts_per_page' => get_option('posts_per_page')
-);
-$cpt_loop = new WP_Query( $args );
-?>
-<?php if ( $cpt_loop->have_posts() ) : while ( $cpt_loop->have_posts() ) : $cpt_loop->the_post(); ?>
-<div>
-	<figure>
-		<img src="http://www.barcos-alquiler.com/imagenes/alquiler_barcos/alquiler_barcos.jpg" alt="">
-		<figcaption>
-		<h2><?php the_title(); ?></h2>
-		</figcaption>
-	</figure>
-</div>
-<article>
-	<div class="features"></div>
-	<div class="precio">
-		<p class="precio__cantidad">
-			<?php the_field('precio'); ?>€
-		</p>
-		<small></small>
+<div id="main-content" class="main">
+	<div id="inside">
+	<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/barco1.svg" />
+	<?php if (have_posts()) : ?>
+		<?php while (have_posts()) : the_post(); ?>
+		<?php endwhile; ?>
+		<div class="pagination">
+			<span class="older"><?php next_posts_link('&laquo; Older Entries') ?></span>
+			<span class="newer"><?php previous_posts_link('Newer Entries &raquo;') ?></span>
+		</div>
+		<?php else : ?>
+		<h1>Uh oh...</h1>
+		<?php endif; ?>
 	</div>
-</article>
-
-<?php endwhile; endif; ?>
-</main>
+</div>
 <?php //echo do_shortcode('[mappress mapid="1" width="100%"]'); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

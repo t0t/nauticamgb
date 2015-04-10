@@ -2,6 +2,7 @@
     $(function() {
 
 
+
 // $(function(){
 //   $( "div.team" ).bind( "tap", tapHandler );
  

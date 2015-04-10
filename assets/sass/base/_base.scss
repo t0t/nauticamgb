@@ -35,7 +35,8 @@ body {
     background-color: $color-white;
     // background-image: url(#{$image-path}bg.svg);
     @include font-size(12);
-
+    //background: linear-gradient(to right, #ccc 50%, #d3d3d3 0);
+    background-size: 4px 100%;
     @media screen and (min-width: $bp3) {
         @include font-size(18);
     }

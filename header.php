@@ -1,14 +1,23 @@
 <!doctype html>
-
-<html lang="es">
+<html <?php language_attributes(); ?>>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?></title>
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 		<!--iOS -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<?php wp_head(); ?>
+		<?php // load required scripts
+		wp_head();
+		// load theme options
+		global $options;
+		foreach ($options as $value) {
+			if (get_option($value['id']) === FALSE) {
+				$$value['id'] = $value['std'];
+			} else {
+				$$value['id'] = get_option($value['id']);
+			}
+		} ?>
 	</head>
 	
 	<body>
@@ -42,5 +51,20 @@
 						<figcaption class="team__caption">Tecnico</figcaption>
 					</figure>
 				</div>
-			</div></div>
-			<?php //echo do_shortcode('[gtranslate]'); ?>
+			</div>
+			
+			<ul>
+				<?php if (get_option('show_on_front') == 'posts') { ?>
+
+				<li class="home"><a href="/">Home</a></li>
+
+				<?php } // list categories and pages
+				if ($lab_nav_choice == "Categories") {
+					wp_list_categories("title_li=");
+				} else {
+					wp_list_pages("title_li=&depth=1"); 
+				} ?>
+
+			</ul>
+		</div>
+		<?php //echo do_shortcode('[gtranslate]'); ?>

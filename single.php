@@ -8,21 +8,19 @@
 		<?php while (have_posts()) : the_post(); ?>
 
 		<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-			<h1>
-			<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-			</h1>
-			
+			<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+			<div class="meta">by <?php the_author() ?> on <?php the_time('F jS, Y') ?></div>
+		
 			<div class="article-content">
 				<?php the_content(); ?>
+				<?php wp_link_pages(); ?>
 
 			</div>
+			<p><?php the_tags(); ?></p>
 		</div>
 		<?php endwhile; ?>
 
-		<div class="pagination">
-			<span class="older"><?php next_posts_link('&laquo; Older Entries') ?></span>
-			<span class="newer"><?php previous_posts_link('Newer Entries &raquo;') ?></span>
-		</div>
+		<?php comments_template(); ?>
 		<?php else : ?>
 
 		<h1>Uh oh...</h1>

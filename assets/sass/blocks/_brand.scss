@@ -22,7 +22,7 @@
         flex-basis: 50%;
         width: 200px;
         height: 90%;
-        @include background-image(logo, 100%, no-repeat, center -10px, svg);
+        //@include background-image(logo, 100%, no-repeat, center -10px, svg);
         @media screen and (min-width: $bp3) {
             
         }
