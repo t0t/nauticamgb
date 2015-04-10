@@ -51,7 +51,7 @@
 	}
 
 	// URL internal is via plugin http://benalman.com/projects/jquery-urlinternal-plugin/
-	$('a:urlInternal').live('click', function(e){ 
+	$('a:urlInternal:not(.no-ajax,[href^="#"],[href*="wp-login"],[href*="wp-admin"])').live('click', function(e){ 
 
 		$el = $(this); // Caching
 

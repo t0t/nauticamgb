@@ -66,5 +66,9 @@
 				} ?>
 
 			</ul>
+			
+			
+			
+			
 		</div>
 		<?php //echo do_shortcode('[gtranslate]'); ?>

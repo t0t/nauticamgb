@@ -4,7 +4,7 @@ Template Name: Home
 */
 ?>
 <?php get_header(); ?>
-<div id="main-content" class="main">
+<main id="main-content" class="main">
 	<div id="inside">
 	<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/barco1.svg" />
 	<?php if (have_posts()) : ?>
@@ -18,7 +18,7 @@ Template Name: Home
 		<h1>Uh oh...</h1>
 		<?php endif; ?>
 	</div>
-</div>
+</main>
 <?php //echo do_shortcode('[mappress mapid="1" width="100%"]'); ?>
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>

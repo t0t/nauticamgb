@@ -266,8 +266,8 @@ function mytheme_admin() {
 		}
 		add_filter('upload_mimes', 'cc_mime_types');
 		/* No me carges los scripts de cf7, los cargare luego solo para contacto */
-		add_filter( 'wpcf7_load_js', '__return_false' );
-		add_filter( 'wpcf7_load_css', '__return_false' );
+		// add_filter( 'wpcf7_load_js', '__return_false' );
+		// add_filter( 'wpcf7_load_css', '__return_false' );
 		// not used in this version
 		if (!isset( $content_width)) $content_width = 960;
 		?>

@@ -1,7 +1,13 @@
+
+
 (function($) {
     $(function() {
 
-
+ $( '#main-content' ).on( "click", function(e) {
+        e.preventDefault();
+        // $(this).parent('div').remove();
+        $(this).remove();
+    });
 
 // $(function(){
 //   $( "div.team" ).bind( "tap", tapHandler );
@@ -178,10 +184,7 @@
 
 
 
-    // $( '#close' ).on( "click", function(e) {
-    //     e.preventDefault();
-    //     $(this).parent('div').remove();
-    // });
+   
 
 
 
